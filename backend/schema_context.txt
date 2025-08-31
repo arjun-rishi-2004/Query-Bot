@@ -1,0 +1,158 @@
+Tables:
+additional_geo_location(location_id (bigint), name_tid (bigint), tid (bigint), latitude (character varying), longitude (character varying))
+business_details(logo_tid (bigint), tid (bigint), name (character varying), website (character varying))
+cdr(credit (boolean), home_charging_compensation (boolean), total_energy (double precision), total_parking_time (double precision), total_time (double precision), cdr_location_tid (bigint), cdr_token_tid (bigint), end_date_time (timestamp without time zone), last_updated (timestamp without time zone), signed_data_tid (bigint), start_date_time (timestamp without time zone), tid (bigint), total_cost_tid (bigint), total_energy_cost_tid (bigint), total_fixed_cost_tid (bigint), total_parking_cost_tid (bigint), total_reservation_cost_tid (bigint), total_time_cost_tid (bigint), auth_method (character varying), authorization_reference (character varying), country_code (character varying), credit_reference_id (character varying), currency (character varying), id (character varying), invoice_reference_id (character varying), meter_id (character varying), pair_name (character varying), party_id (character varying), remark (character varying), session_id (character varying))
+cdr_dimension(volume (double precision), charging_period_id (bigint), tid (bigint), type (character varying))
+cdr_location(coordinates_tid (bigint), tid (bigint), address (character varying), city (character varying), connector_format (character varying), connector_id (character varying), connector_power_type (character varying), connector_standard (character varying), country (character varying), evse_id (character varying), evse_uid (character varying), id (character varying), name (character varying), postal_code (character varying))
+cdr_token(tid (bigint), connector_id (character varying), contract_id (character varying), country_code (character varying), party_id (character varying), type (character varying), uid (character varying))
+charging_period(cdr_id (bigint), session_id (bigint), start_date_time (timestamp without time zone), tid (bigint), tariff_id (character varying))
+command_details(discharge_allowed (boolean), energy_need (double precision), pref_required (boolean), session_id (integer), timeout (integer), created_at (timestamp without time zone), departure_time (timestamp without time zone), tid (bigint), updated_at (timestamp without time zone), authorization_reference (character varying), charging_preference_response (character varying), command (character varying), cpo_request_status (character varying), cpo_response_status (character varying), ocpi_request_status (character varying), ocpi_response_status (character varying), pair_name (character varying), profile_type (character varying), uid (character varying))
+connector(max_amperage (integer), max_electric_power (integer), max_voltage (integer), evse_id (bigint), last_updated (timestamp without time zone), tid (bigint), format (character varying), id (character varying), pair_name (character varying), power_type (character varying), standard (character varying), terms_and_conditions (character varying))
+connector_tariff_ids(connector_tid (bigint), tariff_ids (character varying))
+credential_role(business_details_tid (bigint), credentials_tid (bigint), tid (bigint), country_code (character varying), party_id (character varying), role (character varying))
+credentials(tid (bigint), token (character varying), url (character varying))
+display_text(evse_id (bigint), location_id (bigint), tariff_id (bigint), tid (bigint), language (character varying), text (character varying))
+endpoint(tid (bigint), version_details_id (bigint), identifier (character varying), role (character varying), url (character varying))
+energy_contract(tid (bigint), contract_id (character varying), supplier_name (character varying))
+energy_mix(is_green_energy (boolean), tid (bigint), energy_product_name (character varying), supplier_name (character varying))
+energy_source(percentage (double precision), energymix_id (bigint), tid (bigint), source (character varying))
+environmental_impact(amount (double precision), energymix_id (bigint), tid (bigint), category (character varying))
+evse(coordinates_tid (bigint), last_updated (timestamp without time zone), location_id (bigint), status_schedule_tid (bigint), tid (bigint), evse_id (character varying), floor_level (character varying), physical_reference (character varying), status (character varying), uid (character varying))
+evse_capabilities(evse_tid (bigint), capabilities (character varying))
+evse_parking_restrictions(evse_tid (bigint), parking_restrictions (character varying))
+exceptional_period(hours_id (bigint), period_begin (timestamp without time zone), period_end (timestamp without time zone), tid (bigint))
+geo_location(tid (bigint), latitude (character varying), longitude (character varying))
+hours(twentyfourseven (boolean), tid (bigint))
+image(height (integer), width (integer), evse_id (bigint), location_id (bigint), tid (bigint), category (character varying), thumbnail (character varying), type (character varying), url (character varying))
+location(charging_when_closed (boolean), publish (boolean), coordinates_tid (bigint), created_at (timestamp without time zone), energy_mix_tid (bigint), last_updated (timestamp without time zone), opening_times_tid (bigint), operator_tid (bigint), owner_tid (bigint), suboperator_tid (bigint), tid (bigint), address (character varying), city (character varying), country (character varying), country_code (character varying), id (character varying), name (character varying), pair_name (character varying), parking_type (character varying), party_id (character varying), postal_code (character varying), state (character varying), time_zone (character varying))
+location_facilities(location_tid (bigint), facilities (character varying))
+p2pcredentials_pair(credentials_role (smallint), last_updated (timestamp without time zone), our_credentials_tid (bigint), their_credentials_tid (bigint), their_version_details_tid (bigint), tid (bigint), name (character varying), state (character varying))
+price(excl_vat (double precision), incl_vat (double precision), tid (bigint))
+price_component(price (double precision), step_size (integer), vat (double precision), tariff_element_id (bigint), tid (bigint), type (character varying))
+publish_token_type(location_id (bigint), tid (bigint), group_id (character varying), issuer (character varying), type (character varying), uid (character varying), visual_number (character varying))
+regular_hours(weekday (integer), hours_id (bigint), tid (bigint), period_begin (character varying), period_end (character varying))
+session(kwh (double precision), cdr_token_tid (bigint), created_at (timestamp without time zone), end_date_time (timestamp without time zone), last_updated (timestamp without time zone), start_date_time (timestamp without time zone), tid (bigint), total_cost_tid (bigint), auth_method (character varying), authorization_reference (character varying), connector_id (character varying), country_code (character varying), currency (character varying), evse_uid (character varying), id (character varying), location_id (character varying), meter_id (character varying), pair_name (character varying), party_id (character varying), status (character varying))
+signed_data(encoding_method_version (integer), tid (bigint), encoding_method (character varying), public_key (character varying), url (character varying))
+signed_value(signed_data_id (bigint), tid (bigint), nature (character varying), plain_data (character varying), signed_data (character varying))
+status_schedule(period_begin (timestamp without time zone), period_end (timestamp without time zone), tid (bigint), status (character varying))
+tariff(cdr_id (bigint), created_at (timestamp without time zone), end_date_time (timestamp without time zone), energy_mix_tid (bigint), last_updated (timestamp without time zone), max_price_tid (bigint), min_price_tid (bigint), start_date_time (timestamp without time zone), tid (bigint), country_code (character varying), currency (character varying), id (character varying), pair_name (character varying), party_id (character varying), tariff_alt_url (character varying), type (character varying))
+tariff_element(restrictions_tid (bigint), tariff_id (bigint), tid (bigint))
+tariff_restrictions(max_current (double precision), max_duration (integer), max_kwh (double precision), max_power (double precision), min_current (double precision), min_duration (integer), min_kwh (double precision), min_power (double precision), tid (bigint), end_date (character varying), end_time (character varying), reservation (character varying), start_date (character varying), start_time (character varying), day_of_week (ARRAY))
+token(valid (boolean), created_at (timestamp without time zone), energy_contract_tid (bigint), last_updated (timestamp without time zone), tid (bigint), contract_id (character varying), country_code (character varying), default_profile_type (character varying), group_id (character varying), issuer (character varying), language (character varying), pair_name (character varying), party_id (character varying), type (character varying), uid (character varying), visual_number (character varying), whitelist (character varying))
+version_details(tid (bigint), version (character varying))
+
+Relations:
+additional_geo_location.location_id → location.tid
+additional_geo_location.location_id → location.tid
+additional_geo_location.name_tid → display_text.tid
+additional_geo_location.name_tid → display_text.tid
+business_details.logo_tid → image.tid
+business_details.logo_tid → image.tid
+cdr.cdr_location_tid → cdr_location.tid
+cdr.cdr_location_tid → cdr_location.tid
+cdr.cdr_token_tid → cdr_token.tid
+cdr.cdr_token_tid → cdr_token.tid
+cdr.signed_data_tid → signed_data.tid
+cdr.signed_data_tid → signed_data.tid
+cdr.total_cost_tid → price.tid
+cdr.total_cost_tid → price.tid
+cdr.total_energy_cost_tid → price.tid
+cdr.total_energy_cost_tid → price.tid
+cdr.total_fixed_cost_tid → price.tid
+cdr.total_fixed_cost_tid → price.tid
+cdr.total_parking_cost_tid → price.tid
+cdr.total_parking_cost_tid → price.tid
+cdr.total_reservation_cost_tid → price.tid
+cdr.total_reservation_cost_tid → price.tid
+cdr.total_time_cost_tid → price.tid
+cdr.total_time_cost_tid → price.tid
+cdr_dimension.charging_period_id → charging_period.tid
+cdr_dimension.charging_period_id → charging_period.tid
+cdr_location.coordinates_tid → geo_location.tid
+cdr_location.coordinates_tid → geo_location.tid
+charging_period.cdr_id → cdr.tid
+charging_period.cdr_id → cdr.tid
+charging_period.session_id → session.tid
+charging_period.session_id → session.tid
+connector.evse_id → evse.tid
+connector.evse_id → evse.tid
+connector_tariff_ids.connector_tid → connector.tid
+connector_tariff_ids.connector_tid → connector.tid
+credential_role.business_details_tid → business_details.tid
+credential_role.business_details_tid → business_details.tid
+credential_role.credentials_tid → credentials.tid
+credential_role.credentials_tid → credentials.tid
+display_text.evse_id → evse.tid
+display_text.evse_id → evse.tid
+display_text.location_id → location.tid
+display_text.location_id → location.tid
+display_text.tariff_id → tariff.tid
+display_text.tariff_id → tariff.tid
+endpoint.version_details_id → version_details.tid
+endpoint.version_details_id → version_details.tid
+energy_source.energymix_id → energy_mix.tid
+energy_source.energymix_id → energy_mix.tid
+environmental_impact.energymix_id → energy_mix.tid
+environmental_impact.energymix_id → energy_mix.tid
+evse.coordinates_tid → geo_location.tid
+evse.coordinates_tid → geo_location.tid
+evse.location_id → location.tid
+evse.location_id → location.tid
+evse.status_schedule_tid → status_schedule.tid
+evse.status_schedule_tid → status_schedule.tid
+evse_capabilities.evse_tid → evse.tid
+evse_capabilities.evse_tid → evse.tid
+evse_parking_restrictions.evse_tid → evse.tid
+evse_parking_restrictions.evse_tid → evse.tid
+exceptional_period.hours_id → hours.tid
+exceptional_period.hours_id → hours.tid
+image.evse_id → evse.tid
+image.evse_id → evse.tid
+image.location_id → location.tid
+image.location_id → location.tid
+location.coordinates_tid → geo_location.tid
+location.coordinates_tid → geo_location.tid
+location.energy_mix_tid → energy_mix.tid
+location.energy_mix_tid → energy_mix.tid
+location.opening_times_tid → hours.tid
+location.opening_times_tid → hours.tid
+location.operator_tid → business_details.tid
+location.operator_tid → business_details.tid
+location.owner_tid → business_details.tid
+location.owner_tid → business_details.tid
+location.suboperator_tid → business_details.tid
+location.suboperator_tid → business_details.tid
+location_facilities.location_tid → location.tid
+location_facilities.location_tid → location.tid
+p2pcredentials_pair.our_credentials_tid → credentials.tid
+p2pcredentials_pair.our_credentials_tid → credentials.tid
+p2pcredentials_pair.their_credentials_tid → credentials.tid
+p2pcredentials_pair.their_credentials_tid → credentials.tid
+p2pcredentials_pair.their_version_details_tid → version_details.tid
+p2pcredentials_pair.their_version_details_tid → version_details.tid
+price_component.tariff_element_id → tariff_element.tid
+price_component.tariff_element_id → tariff_element.tid
+publish_token_type.location_id → location.tid
+publish_token_type.location_id → location.tid
+regular_hours.hours_id → hours.tid
+regular_hours.hours_id → hours.tid
+session.cdr_token_tid → cdr_token.tid
+session.cdr_token_tid → cdr_token.tid
+session.total_cost_tid → price.tid
+session.total_cost_tid → price.tid
+signed_value.signed_data_id → signed_data.tid
+signed_value.signed_data_id → signed_data.tid
+tariff.cdr_id → cdr.tid
+tariff.cdr_id → cdr.tid
+tariff.energy_mix_tid → energy_mix.tid
+tariff.energy_mix_tid → energy_mix.tid
+tariff.max_price_tid → price.tid
+tariff.max_price_tid → price.tid
+tariff.min_price_tid → price.tid
+tariff.min_price_tid → price.tid
+tariff_element.restrictions_tid → tariff_restrictions.tid
+tariff_element.restrictions_tid → tariff_restrictions.tid
+tariff_element.tariff_id → tariff.tid
+tariff_element.tariff_id → tariff.tid
+token.energy_contract_tid → energy_contract.tid
+token.energy_contract_tid → energy_contract.tid

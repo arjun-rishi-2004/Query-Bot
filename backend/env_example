@@ -1,0 +1,4 @@
+GEMINI_API_KEY=****************
+METABASE_URL=http://localhost:3000
+METABASE_SESSION=****************   # you’ll get this from Metabase API login
+METABASE_DB_ID=*            # id of your connected database in Metabase
